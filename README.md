@@ -1,45 +1,68 @@
-# ip-address-tracker
+# Ip Address Tracker from Front End Mentor
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is a solution to the Frontend Mentor IP Address Tracker Challenge. The goal is to build an IP Address Tracker app that closely matches the provided design, using the [IP Geolocation API by IPify](https://geo.ipify.org/) for IP location data and [LeafletJS](https://leafletjs.com/) for map rendering.
 
-## Recommended IDE Setup
+Demo : TBA
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Getting started
 
-## Type Support for `.vue` Imports in TS
+### Clone this repository
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+```bash
+# Clone this repository
+git clone https://github.com/TKadyear/ip-address-tracker.git
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+# Go into the repository
+cd ip-address-tracker
 ```
 
-### Compile and Hot-Reload for Development
+### Run project
 
-```sh
+> Note: If you want the same configuration with which I have developed this project, you will need to install Docker and download the extension for [devcontainer](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for vscode.
+
+```bash
+# Install dependencies
+npm ci
+
+# Run the local server
 npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
+# Lint files
+npm run lint
 
-```sh
+# Build static files
 npm run build
-```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+# Run the server with static files
+npm run preview
 
-```sh
+# Run unit test
 npm run test:unit
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## Challenge
 
-```sh
-npm run lint
-```
+The users should be able to:
+
+- View the optimal layout for each page depending on their device's screen size
+- See hover states for all interactive elements on the page
+- See their own IP address on the map on the initial page load
+- Search for any IP addresses or domains and see the key information and location
+
+## My process
+
+### Built with
+
+- HTML
+- CSS
+- Vue
+- Typescript
+
+### Useful resources
+
+- WIP
+
+## Author
+
+- Github - [Tamara Kadyear | TKadyear](https://github.com/TKadyear)
+- Frontend Mentor - [Tamara Kadyearr | TKadyear](https://www.frontendmentor.io/profile/TKadyear)
