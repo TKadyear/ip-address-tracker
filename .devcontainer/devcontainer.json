@@ -1,0 +1,68 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/alpine
+{
+  "name": "Alpine",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "runArgs": ["--name", "${localEnv:USER}-ip-address-tracker"],
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [7071],
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Gruntfuggly.todo-tree",
+        "ChakrounAnas.turbo-console-log",
+        "aaron-bond.better-comments",
+        "Tobermory.es6-string-html",
+        "dbaeumer.vscode-eslint",
+        "christian-kohler.path-intellisense",
+        "donjayamanne.githistory",
+        "stkb.rewrap",
+        "yzhang.markdown-all-in-one",
+        "kisstkondoros.vscode-gutter-preview",
+        "github.vscode-github-actions",
+        "Vue.volar",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "editor.codeActionsOnSave": {
+          "source.fixAll": "explicit"
+        },
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "workbench.colorCustomizations": {
+          "activityBar.activeBackground": "#119fd1",
+          "activityBar.background": "#119fd1",
+          "activityBar.foreground": "#e7e7e7",
+          "activityBar.inactiveForeground": "#e7e7e799",
+          "activityBarBadge.background": "#fac4ec",
+          "activityBarBadge.foreground": "#15202b",
+          "commandCenter.border": "#e7e7e799",
+          "sash.hoverBorder": "#119fd1",
+          "statusBar.background": "#0d7ba2",
+          "statusBar.foreground": "#e7e7e7",
+          "statusBarItem.hoverBackground": "#119fd1",
+          "statusBarItem.remoteBackground": "#0d7ba2",
+          "statusBarItem.remoteForeground": "#e7e7e7",
+          "titleBar.activeBackground": "#0d7ba2",
+          "titleBar.activeForeground": "#e7e7e7",
+          "titleBar.inactiveBackground": "#0d7ba299",
+          "titleBar.inactiveForeground": "#e7e7e799"
+        },
+        "peacock.remoteColor": "#0d7ba2"
+      }
+    }
+  },
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,ro",
+    "source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached"
+  ],
+  "remoteUser": "node"
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
