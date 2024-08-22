@@ -29,10 +29,6 @@
         "esbenp.prettier-vscode"
       ],
       "settings": {
-        "editor.codeActionsOnSave": {
-          "source.fixAll": "explicit"
-        },
-        "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "workbench.colorCustomizations": {
           "activityBar.activeBackground": "#119fd1",
