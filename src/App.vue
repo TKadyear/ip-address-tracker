@@ -1,37 +1,24 @@
 <script setup lang="ts">
+import InputTracker from './components/InputTracker.vue';
 </script>
 
 <template>
-  <main>
-    <h1>Hello</h1>
+  <main class="container">
+    <h1 class="title">IP Address Tracker</h1>
+    <InputTracker />
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+.title{
+  color: white;
+  font-weight: 400;
+  font-size: 1.5rem;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.container{
+  text-align: center;
+  font-family: "Rubik";
+  background: url(./pattern-bg-mobile.png);
+  padding: 1.25rem;
 }
 </style>

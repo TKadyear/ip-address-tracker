@@ -1,2 +1,14 @@
 /* @import './base.css'; */
+:root{
+  --primary: hsl(0, 0%, 17%);
+  --secondary: hsl(0, 0%, 59%);
+  --rounded: 12px;
+}
+body {
+  margin: 0;
+}
 
+@font-face {
+  font-family: 'Rubik';
+  src: url(./fonts/Rubik-VariableFont_wght.ttf);
+}
