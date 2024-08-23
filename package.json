@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "vue-tsc --build --force",
+    "build:prd": "npm run build -- --base https://tkadyear.github.io/ip-address-tracker/",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",

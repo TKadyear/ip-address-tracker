@@ -15,14 +15,9 @@ jobs:
       - name: Install Dependencies
         run: npm ci
       - name: Build
-        run: npm run build
-      - name: Create tar file
-        run: tar -czvf dist.tar.gz dist/
-      # - name: Upload Artifact
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: github-pages
-      #     path: dist.tar.gz
+        run: npm run build:prd
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -36,6 +31,7 @@ jobs:
     # Deploy to the github-pages environment
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
     - name: Deploy to GitHub Pages
       id: deployment
