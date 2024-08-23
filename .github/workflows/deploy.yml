@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - ci/test_deployment
 
 jobs:
   build:
