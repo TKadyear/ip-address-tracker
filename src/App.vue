@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import InputTracker from './components/InputTracker.vue';
+import SummaryLocation from './components/SummaryLocation.vue';
 </script>
 
 <template>
   <main class="container">
     <h1 class="title">IP Address Tracker</h1>
     <InputTracker />
+    <SummaryLocation />
   </main>
 </template>
 
@@ -20,5 +22,6 @@ import InputTracker from './components/InputTracker.vue';
   font-family: "Rubik";
   background: url(./pattern-bg-mobile.png);
   padding: 1.25rem;
+  /* height: 100vh; */
 }
 </style>
