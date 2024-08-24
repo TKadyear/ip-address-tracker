@@ -24,6 +24,7 @@ const mapValues = {
 
 <style scoped>
 .container-summary {
+  margin:auto;
   background-color: white;
   border-radius: var(--rounded);
   display: flex;
@@ -31,6 +32,7 @@ const mapValues = {
   gap: 1rem;
   padding: 1rem;
 }
+
 .text {
   color: var(--secondary);
   font-weight: 700;
@@ -45,5 +47,16 @@ const mapValues = {
   font-weight: 600;
   font-size: 1rem;
   color: var(--primary);
+}
+
+@media (width >= 768px) {
+  .container-summary {
+    max-width: 54rem;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .text{
+    text-align: left;
+  }
 }
 </style>

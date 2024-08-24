@@ -22,6 +22,12 @@ import SummaryLocation from './components/SummaryLocation.vue';
   font-family: "Rubik";
   background: url(./pattern-bg-mobile.png);
   padding: 1.25rem;
-  /* height: 100vh; */
+}
+@media (width >= 375px) {
+  .container {
+    background: url(./pattern-bg-desktop.png);
+    background-size: cover;
+    background-position-x: center;
+  }
 }
 </style>
