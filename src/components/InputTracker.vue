@@ -19,7 +19,7 @@ alert(`search ${valueInput}`)
       maxlength="15"
       :pattern="ipAddressV4regex"
       :value="valueInput"
-      placeholder="Write Ip Address V4"
+      placeholder="Search for any IP address or domain"
     />
     <button class="arrow-btn" :onclick="handleClick">
       <IconArrow />
@@ -29,7 +29,8 @@ alert(`search ${valueInput}`)
 
 <style scoped>
 .container-search {
-  margin: 1.5rem 0;
+  margin: 1.5rem auto;
+  max-width: 35rem;
   background-color: white;
   border-radius: var(--rounded);
   display: flex;
