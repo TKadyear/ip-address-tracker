@@ -52,11 +52,11 @@ alert(`search ${valueInput}`)
   padding: 1rem 1.25rem;
   border: 0;
   cursor: pointer;
-}
-.arrow-btn:hover {
-  background-color: var(--primary);
-}
-svg {
-  width: 10px;
+  &:hover{
+    background-color: var(--primary);
+  }
+  & svg{
+    width: 10px;
+  }
 }
 </style>
