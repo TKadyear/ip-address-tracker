@@ -1,47 +1,49 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import InputTracker from './components/InputTracker.vue'
+import SummaryLocation from './components/SummaryLocation.vue'
+import AppMap from './components/AppMap.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
+  <main class="container">
+    <h1 class="title">IP Address Tracker</h1>
+    <InputTracker />
+    <SummaryLocation />
   </main>
+  <AppMap />
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+.title {
+  color: white;
+  font-weight: 400;
+  font-size: 1.5rem;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.container {
+  position: relative;
+  height: var(--background-mobile);
+  text-align: center;
+  font-family: 'Rubik';
+  background: url(/pattern-bg-mobile.png);
+  padding: var(--padding-size);
+  padding-bottom: 0;
+  z-index: 1;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+@media (width >= 375px) {
+  .container {
+    background: url(/pattern-bg-desktop.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
+}
+@media (width >= 768px) {
+  .container {
+    height: var(--background-desktop);
   }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+}
+@media (width >= 1440px) {
+  .container {
+    background-size: 100%;
   }
 }
 </style>
