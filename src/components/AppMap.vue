@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from 'vue'
 import L from 'leaflet'
-import customIconSvg from '../../public/icon-location.svg'
+import customIconSvg from '/icon-location.svg'
 
 const map: Ref = ref(null)
 
@@ -10,10 +10,11 @@ onMounted(() => {
     zoomControl: false // Disable the default zoom control
   }).setView([51.505, -0.09], 13)
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map.value)
+  
   L.control
     .zoom({
       position: 'bottomright'
