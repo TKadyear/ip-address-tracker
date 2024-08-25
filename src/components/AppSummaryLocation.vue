@@ -1,11 +1,12 @@
 <script setup lang="ts">
-const data = {
-  ipAddress: '192.212.174.101',
-  location: 'Brooklyn, NY 10001',
-  timezone: 'UTC -05:00',
-  isp: 'SpaceX Starlink'
+import { type InformationLocationInterface } from '@/types/types'
+
+interface Props {
+  information: InformationLocationInterface
 }
-const mapValues = {
+const props = defineProps<Props>()
+
+const detailsTitle = {
   ipAddress: 'Ip Address',
   location: 'Location',
   timezone: 'Timezone',
@@ -15,11 +16,11 @@ const mapValues = {
 
 <template>
   <div class="container-summary">
-    <span v-for="(value, key) in data" :key="mapValues[key]">
+    <span v-for="(title, key) in detailsTitle" :key="detailsTitle[key]">
       <div class="divider" />
       <div class="content">
-        <p class="title">{{ mapValues[key] }}</p>
-        <p class="value">{{ value }}</p>
+        <p class="title">{{ title }}</p>
+        <p class="value">{{ props.information[key] }}</p>
       </div>
     </span>
   </div>

@@ -1,16 +1,60 @@
 <script setup lang="ts">
+import { onMounted, ref, type Ref } from 'vue'
 import InputTracker from './components/AppInputTracker.vue'
 import SummaryLocation from './components/AppSummaryLocation.vue'
 import AppMap from './components/AppMap.vue'
+import {
+  type IpAddressResponseInterface,
+  type LocationInterface,
+  type InformationLocationInterface
+} from '@/types/types'
+
+const apiUrl = import.meta.env.VITE_API_URL
+const apiKey = import.meta.env.VITE_API_KEY
+
+const location: Ref<LocationInterface> = ref({ lat: 0, lng: 0 })
+const ipAddress: Ref<string> = ref('')
+const information: Ref<InformationLocationInterface> = ref({
+  ipAddress: '',
+  location: '',
+  timezone: '',
+  isp: ''
+})
+
+onMounted(() => {
+  getIpAddress()
+})
+
+const getIpAddress = (searchIpAddress?: string) => {
+  const requestUrl = `${apiUrl}/1?apiKey=${apiKey}?ipAddress=${searchIpAddress}`
+  console.log('getIpAddress')
+  fetch(requestUrl)
+    .then((response) => response.json())
+    .then((data: IpAddressResponseInterface) => {
+      console.log(data)
+      const { lat, lng, country, city, region, postalCode, timezone } = data.location
+      ipAddress.value = data.ip
+      location.value = { lat, lng }
+      information.value = {
+        ipAddress: data.ip,
+        location: `${city}, ${region}, ${country} ${postalCode} `,
+        isp: data.isp,
+        timezone
+      }
+    })
+}
+const handleUpdate = (searchIpAddress: string) => {
+  getIpAddress(searchIpAddress)
+}
 </script>
 
 <template>
   <main class="container">
     <h1 class="title">IP Address Tracker</h1>
-    <InputTracker />
-    <SummaryLocation />
+    <InputTracker :value="ipAddress" @update-ip-address="handleUpdate" />
+    <SummaryLocation :information="information" />
   </main>
-  <AppMap />
+  <AppMap :location="location" />
 </template>
 
 <style scoped>
