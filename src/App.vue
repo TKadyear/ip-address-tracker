@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import InputTracker from './components/InputTracker.vue'
-import SummaryLocation from './components/SummaryLocation.vue'
+import InputTracker from './components/AppInputTracker.vue'
+import SummaryLocation from './components/AppSummaryLocation.vue'
 import AppMap from './components/AppMap.vue'
 </script>
 
