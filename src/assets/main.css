@@ -2,6 +2,7 @@
 :root{
   --primary: hsl(0, 0%, 17%);
   --secondary: hsl(0, 0%, 59%);
+  --shadow: hsla(0, 0%, 59%, 0.29);
   --rounded: 12px;
 }
 body {

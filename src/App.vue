@@ -26,7 +26,8 @@ import SummaryLocation from './components/SummaryLocation.vue';
 @media (width >= 375px) {
   .container {
     background: url(./pattern-bg-desktop.png);
-    background-size: cover;
+    background-size: 100% 200px;
+    background-repeat: no-repeat;
     background-position-x: center;
   }
 }

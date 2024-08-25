@@ -15,10 +15,13 @@ const mapValues = {
 
 <template>
   <div class="container-summary">
-    <span v-for="(value, key) in data" :key="mapValues[key]">
-      <p class="text">{{ mapValues[key] }}</p>
-      <p class="value">{{ value }}</p>
-    </span>
+      <span v-for="(value, key) in data" :key="mapValues[key]">
+        <div class="divider" />
+        <div class="content">
+          <p class="title">{{ mapValues[key] }}</p>
+          <p class="value">{{ value }}</p>
+        </div>
+      </span>
   </div>
 </template>
 
@@ -31,9 +34,16 @@ const mapValues = {
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-}
+  box-shadow: 0 10px 10px var(--shadow);
 
-.text {
+}
+.divider{
+  display: none;
+}
+.container-summary span:first-child >.divider{
+    display: none;
+  }
+.title {
   color: var(--secondary);
   font-weight: 700;
   font-variant: all-small-caps;
@@ -55,8 +65,21 @@ const mapValues = {
     flex-direction: row;
     justify-content: space-around;
   }
-  .text{
+  .content{
+    display: inline-block;
+
+  }
+  .title{
     text-align: left;
+  }
+ .divider{
+  width: 2px;
+  background-color: var(--shadow);
+  margin: 0;
+  margin-right: 1.25rem;
+  display: inline-block;
+  /* TODO: This height is not dynamic set if the value needs to lines the layout will break */
+  height: 2.25rem;
   }
 }
 </style>
