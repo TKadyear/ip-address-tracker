@@ -8,9 +8,9 @@ import AppMap from './components/AppMap.vue';
   <main class="container">
     <h1 class="title">IP Address Tracker</h1>
     <InputTracker />
-    <SummaryLocation />
-    <AppMap />
+    <!-- <SummaryLocation /> -->
   </main>
+  <AppMap />
 </template>
 
 <style scoped>
@@ -20,17 +20,24 @@ import AppMap from './components/AppMap.vue';
   font-size: 1.5rem;
 }
 .container{
+  position: relative;
+  height: 250px;
   text-align: center;
   font-family: "Rubik";
   background: url(./pattern-bg-mobile.png);
   padding: 1.25rem;
+  padding-bottom: 0;
 }
 @media (width >= 375px) {
   .container {
     background: url(./pattern-bg-desktop.png);
-    background-size: 100% 200px;
     background-repeat: no-repeat;
     background-position-x: center;
+  }
+}
+@media (width >= 1440px) {
+  .container {
+    background-size: 100%;
   }
 }
 </style>
