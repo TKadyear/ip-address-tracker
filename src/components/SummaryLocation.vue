@@ -15,19 +15,19 @@ const mapValues = {
 
 <template>
   <div class="container-summary">
-      <span v-for="(value, key) in data" :key="mapValues[key]">
-        <div class="divider" />
-        <div class="content">
-          <p class="title">{{ mapValues[key] }}</p>
-          <p class="value">{{ value }}</p>
-        </div>
-      </span>
+    <span v-for="(value, key) in data" :key="mapValues[key]">
+      <div class="divider" />
+      <div class="content">
+        <p class="title">{{ mapValues[key] }}</p>
+        <p class="value">{{ value }}</p>
+      </div>
+    </span>
   </div>
 </template>
 
 <style scoped>
 .container-summary {
-  margin:auto;
+  margin: auto;
   background-color: white;
   border-radius: var(--rounded);
   display: flex;
@@ -35,14 +35,13 @@ const mapValues = {
   gap: 1rem;
   padding: 1rem;
   box-shadow: 0 10px 10px var(--shadow);
-
 }
-.divider{
+.divider {
   display: none;
 }
-.container-summary span:first-child >.divider{
-    display: none;
-  }
+.container-summary span:first-child > .divider {
+  display: none;
+}
 .title {
   color: var(--secondary);
   font-weight: 700;
@@ -65,21 +64,20 @@ const mapValues = {
     flex-direction: row;
     justify-content: space-around;
   }
-  .content{
+  .content {
     display: inline-block;
-
   }
-  .title{
+  .title {
     text-align: left;
   }
- .divider{
-  width: 2px;
-  background-color: var(--shadow);
-  margin: 0;
-  margin-right: 1.25rem;
-  display: inline-block;
-  /* TODO: This height is not dynamic set if the value needs to lines the layout will break */
-  height: 2.25rem;
+  .divider {
+    width: 2px;
+    background-color: var(--shadow);
+    margin: 0;
+    margin-right: 1.25rem;
+    display: inline-block;
+    /* TODO: This height is not dynamic set if the value needs to lines the layout will break */
+    height: 2.25rem;
   }
 }
 </style>

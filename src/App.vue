@@ -1,38 +1,44 @@
 <script setup lang="ts">
-import InputTracker from './components/InputTracker.vue';
-import SummaryLocation from './components/SummaryLocation.vue';
-import AppMap from './components/AppMap.vue';
+import InputTracker from './components/InputTracker.vue'
+import SummaryLocation from './components/SummaryLocation.vue'
+import AppMap from './components/AppMap.vue'
 </script>
 
 <template>
   <main class="container">
     <h1 class="title">IP Address Tracker</h1>
     <InputTracker />
-    <!-- <SummaryLocation /> -->
+    <SummaryLocation />
   </main>
   <AppMap />
 </template>
 
 <style scoped>
-.title{
+.title {
   color: white;
   font-weight: 400;
   font-size: 1.5rem;
 }
-.container{
+.container {
   position: relative;
-  height: 250px;
+  height: var(--background-mobile);
   text-align: center;
-  font-family: "Rubik";
+  font-family: 'Rubik';
   background: url(./pattern-bg-mobile.png);
-  padding: 1.25rem;
+  padding: var(--padding-size);
   padding-bottom: 0;
+  z-index: 1;
 }
 @media (width >= 375px) {
   .container {
     background: url(./pattern-bg-desktop.png);
     background-repeat: no-repeat;
     background-position-x: center;
+  }
+}
+@media (width >= 768px) {
+  .container {
+    height: var(--background-desktop);
   }
 }
 @media (width >= 1440px) {

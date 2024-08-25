@@ -1,9 +1,12 @@
 /* @import './base.css'; */
-:root{
+:root {
   --primary: hsl(0, 0%, 17%);
   --secondary: hsl(0, 0%, 59%);
   --shadow: hsla(0, 0%, 59%, 0.29);
   --rounded: 12px;
+  --background-mobile: 250px;
+  --background-desktop: 190px;
+  --padding-size: 1.25rem;
 }
 body {
   margin: 0;
