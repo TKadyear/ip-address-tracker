@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import InputTracker from './components/InputTracker.vue';
 import SummaryLocation from './components/SummaryLocation.vue';
+import AppMap from './components/AppMap.vue';
 </script>
 
 <template>
@@ -8,6 +9,7 @@ import SummaryLocation from './components/SummaryLocation.vue';
     <h1 class="title">IP Address Tracker</h1>
     <InputTracker />
     <SummaryLocation />
+    <AppMap />
   </main>
 </template>
 
