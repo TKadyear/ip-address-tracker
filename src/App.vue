@@ -24,14 +24,14 @@ import AppMap from './components/AppMap.vue'
   height: var(--background-mobile);
   text-align: center;
   font-family: 'Rubik';
-  background: url(/pattern-bg-mobile.png);
+  background: url(/images/pattern-bg-mobile.png);
   padding: var(--padding-size);
   padding-bottom: 0;
   z-index: 1;
 }
 @media (width >= 375px) {
   .container {
-    background: url(/pattern-bg-desktop.png);
+    background: url(/images/pattern-bg-desktop.png);
     background-repeat: no-repeat;
     background-position-x: center;
   }

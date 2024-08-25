@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from 'vue'
 import L from 'leaflet'
-import customIconSvg from '/icon-location.svg'
+import customIconSvg from '/images/icon-location.svg'
 
 const map: Ref = ref(null)
 
