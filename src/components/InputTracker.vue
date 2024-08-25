@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import IconArrow from './icons/IconArrow.vue'
-const ipAddressV4regex =
-  '^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])$'
-const valueInput="192.212.174.101"
-const handleClick= () =>{
-alert(`search ${valueInput}`)
+const valueInput = '192.212.174.101'
+const handleClick = () => {
+  alert(`search ${valueInput}`)
 }
 </script>
 
@@ -17,7 +15,6 @@ alert(`search ${valueInput}`)
       id="ip-tracker"
       minlength="15"
       maxlength="15"
-      :pattern="ipAddressV4regex"
       :value="valueInput"
       placeholder="Search for any IP address or domain"
     />
@@ -38,7 +35,7 @@ alert(`search ${valueInput}`)
 }
 .input {
   border-radius: var(--rounded) 0 0 var(--rounded);
-  padding: 1rem ;
+  padding: 1rem;
   width: 100%;
   color: var(--primary);
   font-weight: 400;
@@ -47,15 +44,15 @@ alert(`search ${valueInput}`)
 }
 .arrow-btn {
   border-radius: 0 var(--rounded) var(--rounded) 0;
-  background-color:black;
+  background-color: black;
   transition: 0.3s;
   padding: 1rem 1.25rem;
   border: 0;
   cursor: pointer;
-  &:hover{
+  &:hover {
     background-color: var(--primary);
   }
-  & svg{
+  & svg {
     width: 10px;
   }
 }
