@@ -1,0 +1,10 @@
+[
+  {
+    "id": "base",
+    "routes": [ "get-country:success"]
+  },
+  {
+    "id": "user-real",
+    "routes": ["get-country:real"]
+  }
+]

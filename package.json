@@ -10,14 +10,16 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "lint:check": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts  --ignore-path .gitignore",
-    "format": "prettier --write src/ && npm run lint:check -- --fix"
+    "lint:check": "eslint . --ext 'src/**{.vue,.ts} --ignore-path .gitignore",
+    "format": "prettier --write src/ && npm run lint:check -- --fix",
+    "mocks" : "mocks-server"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
     "vue": "^3.4.29"
   },
   "devDependencies": {
+    "@mocks-server/main": "^4.1.0",
     "@rushstack/eslint-patch": "^1.8.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/jsdom": "^21.1.7",
