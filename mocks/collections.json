@@ -4,7 +4,7 @@
     "routes": [ "get-country:success"]
   },
   {
-    "id": "user-real",
+    "id": "real",
     "routes": ["get-country:real"]
   }
 ]
