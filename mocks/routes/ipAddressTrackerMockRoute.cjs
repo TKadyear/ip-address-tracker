@@ -22,10 +22,11 @@ module.exports = [
         type: "middleware", 
         options: {
           middleware: (req, res,) => { 
+            const ip = req.query.ipAddress || "148.151.124.58"
             const maxItems=listIpAddresses.length
             const randomValue= listIpAddresses[getRandomNumber(0,maxItems)]
             res.status(200);
-            res.send(randomValue);
+            res.send({...randomValue, ip});
           },
         },
       },
