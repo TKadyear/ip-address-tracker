@@ -2,6 +2,7 @@
 
 This project is a solution to the Frontend Mentor IP Address Tracker Challenge. The goal is to build an IP Address Tracker app that closely matches the provided design, using the [IP Geolocation API by IPify](https://geo.ipify.org/) for IP location data and [LeafletJS](https://leafletjs.com/) for map rendering.
 
+![Design preview for the IP address tracker coding challenge](./docs/design/desktop-preview.jpg)
 [Demo](https://tkadyear.github.io/ip-address-tracker/)
 
 ## Getting started
@@ -59,8 +60,10 @@ The users should be able to:
 - Typescript
 
 ### Useful resources
+- [Mock turtle](https://mockturtle.net/)
+- [Mock Server](https://www.mocks-server.org/docs/integrations/javascript/)
 
-- WIP
+An interesting aspect of my development process for the IP Address Tra was the use of a mock server to simulate API responses. This allowed me to continue building  the application without consuming credits from the actual IP Geolocation API by IPify. By implementing a mock server, I was able to work efficiently and ensure that the app's functionality was intact before integrating the real API, which not only saved resources but also provided a smooth development experience.
 
 ## Author
 
