@@ -16,8 +16,8 @@ const detailsTitle = {
 
 <template>
   <div class="container-summary">
-    <span v-for="(title, key) in detailsTitle" :key="detailsTitle[key]">
-      <div class="divider" />
+    <span v-for="(title, key,index) in detailsTitle" :key="detailsTitle[key]">
+      <div v-if="index != 0" class="divider" />
       <div class="content">
         <p class="title">{{ title }}</p>
         <p class="value">{{ props.information[key] }}</p>
@@ -38,9 +38,6 @@ const detailsTitle = {
   box-shadow: 0 10px 10px var(--shadow);
 }
 .divider {
-  display: none;
-}
-.container-summary span:first-child > .divider {
   display: none;
 }
 .title {
