@@ -60,6 +60,7 @@ The users should be able to:
 - Typescript
 
 ### Useful resources
+- [Loader CSS](https://css-loaders.com/)
 - [Mock turtle](https://mockturtle.net/)
 - [Mock Server](https://www.mocks-server.org/docs/integrations/javascript/)
 
