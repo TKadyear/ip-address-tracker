@@ -26,8 +26,8 @@ onMounted(() => {
 })
 
 const getIpAddress = (searchIpAddress?: string) => {
-  const requestUrl = `${apiUrl}/country,city?apiKey=${apiKey}?ipAddress=${searchIpAddress}`
-  console.log('getIpAddress')
+  let requestUrl = `${apiUrl}/country,city?apiKey=${apiKey}`
+  requestUrl += searchIpAddress ? `&ipAddress=${searchIpAddress}` : ''
   fetch(requestUrl)
     .then((response) => response.json())
     .then((data: IpAddressResponseInterface) => {
