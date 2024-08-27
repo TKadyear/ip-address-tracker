@@ -9,7 +9,7 @@
     "build:prd": "npm run build -- --base https://tkadyear.github.io/ip-address-tracker/",
     "build": "vite build",
     "preview": "vite preview",
-    "lint:check": "eslint . --ext 'src/**{.vue,.ts} --ignore-path .gitignore",
+    "lint:check": "eslint . --ext .vue,.ts --ignore-path .gitignore",
     "format": "prettier --write src/ && npm run lint:check -- --fix",
     "mocks": "mocks-server"
   },
