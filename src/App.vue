@@ -43,7 +43,7 @@ const getIpAddress = async (searchIpAddress?: string) => {
         timezone
       }
     })
-    isLoading.value = false
+  isLoading.value = false
 }
 const handleUpdate = (searchIpAddress: string) => {
   getIpAddress(searchIpAddress)
