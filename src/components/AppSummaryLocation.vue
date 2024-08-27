@@ -20,7 +20,7 @@ const detailsTitle = {
       <div v-if="index != 0" class="divider" />
       <div class="content">
         <p class="title">{{ title }}</p>
-        <p class="value">{{ props.information[key] || "empty"}}</p>
+        <p class="value">{{ props.information[key] }}</p>
       </div>
     </template>
   </div>
@@ -46,7 +46,6 @@ const detailsTitle = {
   font-size: 0.75rem;
   letter-spacing: 2px;
   margin: 0;
-  margin-bottom: 0.5rem;
 }
 .value {
   margin: 0;
@@ -62,7 +61,9 @@ const detailsTitle = {
     gap:1.25rem;
   }
   .content {
-    display: inline-block;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-rows: 1rem 1fr;
     text-align: start;
   }
   .title {
