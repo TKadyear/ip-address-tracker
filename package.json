@@ -9,10 +9,9 @@
     "build:prd": "npm run build -- --base https://tkadyear.github.io/ip-address-tracker/",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest",
     "lint:check": "eslint . --ext 'src/**{.vue,.ts} --ignore-path .gitignore",
     "format": "prettier --write src/ && npm run lint:check -- --fix",
-    "mocks" : "mocks-server"
+    "mocks": "mocks-server"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
@@ -38,7 +37,6 @@
     "typescript": "~5.5.4",
     "vite": "^5.3.1",
     "vite-plugin-vue-devtools": "^7.3.9",
-    "vitest": "^2.0.5",
     "vue-tsc": "^2.0.21"
   }
 }
