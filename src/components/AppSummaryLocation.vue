@@ -16,11 +16,11 @@ const detailsTitle = {
 
 <template>
   <div class="container-summary">
-    <template v-for="(title, key,index) in detailsTitle" :key="detailsTitle[key]">
+    <template v-for="(title, key, index) in detailsTitle" :key="detailsTitle[key]">
       <div v-if="index != 0" class="divider" />
       <div class="content">
         <p class="title">{{ title }}</p>
-        <p class="value">{{ props.information[key] }}</p>
+        <p class="value">{{ props.information[key] || '--' }}</p>
       </div>
     </template>
   </div>
@@ -38,6 +38,11 @@ const detailsTitle = {
 }
 .divider {
   display: none;
+}
+.content {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-rows: 1rem 1fr;
 }
 .title {
   color: var(--secondary);
@@ -57,15 +62,10 @@ const detailsTitle = {
 @media (width >= 768px) {
   .container-summary {
     max-width: 54rem;
-    grid-template-columns:repeat(3, 1fr var(--size-divider)) 1fr;
-    gap:1.25rem;
+    grid-template-columns: repeat(3, 1fr var(--size-divider)) 1fr;
+    gap: 1.25rem;
   }
-  .content {
-    display: grid;
-    gap: 0.5rem;
-    grid-template-rows: 1rem 1fr;
-    text-align: start;
-  }
+  .content,
   .title {
     text-align: start;
   }
