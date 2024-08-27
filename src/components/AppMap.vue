@@ -22,7 +22,7 @@ onMounted(() => {
   map.value = L.map('map', {
     zoomControl: false // Disable the default zoom controls
   }).setView([lat, lng], 13)
-  marker.value =L.marker([lat, lng], { icon: customIcon }).addTo(map.value)
+  marker.value = L.marker([lat, lng], { icon: customIcon }).addTo(map.value)
 
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     attribution:
@@ -40,9 +40,11 @@ watch(
   () => props.location,
   (newLocation) => {
     if (map.value) {
-      map.value.removeLayer(marker.value);
+      map.value.removeLayer(marker.value)
       map.value.setView([newLocation.lat, newLocation.lng], 13)
-      marker.value = L.marker([newLocation.lat, newLocation.lng], { icon: customIcon }).addTo(map.value)
+      marker.value = L.marker([newLocation.lat, newLocation.lng], { icon: customIcon }).addTo(
+        map.value
+      )
     }
   },
   { deep: true }
