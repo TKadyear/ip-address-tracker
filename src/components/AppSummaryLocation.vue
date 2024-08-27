@@ -16,13 +16,13 @@ const detailsTitle = {
 
 <template>
   <div class="container-summary">
-    <span v-for="(title, key,index) in detailsTitle" :key="detailsTitle[key]">
+    <template v-for="(title, key,index) in detailsTitle" :key="detailsTitle[key]">
       <div v-if="index != 0" class="divider" />
       <div class="content">
         <p class="title">{{ title }}</p>
-        <p class="value">{{ props.information[key] }}</p>
+        <p class="value">{{ props.information[key] || "empty"}}</p>
       </div>
-    </span>
+    </template>
   </div>
 </template>
 
@@ -31,8 +31,7 @@ const detailsTitle = {
   margin: auto;
   background-color: white;
   border-radius: var(--rounded);
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
   padding: 1rem;
   box-shadow: 0 10px 10px var(--shadow);
@@ -59,23 +58,22 @@ const detailsTitle = {
 @media (width >= 768px) {
   .container-summary {
     max-width: 54rem;
-    flex-direction: row;
-    justify-content: space-around;
+    grid-template-columns:repeat(3, 1fr var(--size-divider)) 1fr;
+    gap:1.25rem;
   }
   .content {
     display: inline-block;
+    text-align: start;
   }
   .title {
-    text-align: left;
+    text-align: start;
   }
   .divider {
-    width: 2px;
+    width: var(--size-divider);
     background-color: var(--shadow);
     margin: 0;
-    margin-right: 1.25rem;
     display: inline-block;
-    /* TODO: This height is not dynamic set if the value needs to lines the layout will break */
-    height: 2.25rem;
+    height: 100%;
   }
 }
 </style>
