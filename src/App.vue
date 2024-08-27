@@ -12,6 +12,7 @@ import {
 const apiUrl = import.meta.env.VITE_API_URL
 const apiKey = import.meta.env.VITE_API_KEY
 
+let isLoading: Ref<boolean> = ref(false)
 const location: Ref<LocationInterface> = ref({ lat: 0, lng: 0 })
 const ipAddress: Ref<string> = ref('')
 const information: Ref<InformationLocationInterface> = ref({
@@ -25,13 +26,13 @@ onMounted(() => {
   getIpAddress()
 })
 
-const getIpAddress = (searchIpAddress?: string) => {
+const getIpAddress = async (searchIpAddress?: string) => {
   let requestUrl = `${apiUrl}/country,city?apiKey=${apiKey}`
   requestUrl += searchIpAddress ? `&ipAddress=${searchIpAddress}` : ''
-  fetch(requestUrl)
+  isLoading.value = true
+  await fetch(requestUrl)
     .then((response) => response.json())
     .then((data: IpAddressResponseInterface) => {
-      console.log(data)
       const { lat, lng, country, city, region, postalCode, timezone } = data.location
       ipAddress.value = data.ip
       location.value = { lat, lng }
@@ -42,6 +43,7 @@ const getIpAddress = (searchIpAddress?: string) => {
         timezone
       }
     })
+    isLoading.value = false
 }
 const handleUpdate = (searchIpAddress: string) => {
   getIpAddress(searchIpAddress)
@@ -49,6 +51,7 @@ const handleUpdate = (searchIpAddress: string) => {
 </script>
 
 <template>
+  <div v-if="isLoading" class="container-loader"><div class="loader"></div></div>
   <main class="container">
     <h1 class="title">IP Address Tracker</h1>
     <InputTracker :value="ipAddress" @update-ip-address="handleUpdate" />
