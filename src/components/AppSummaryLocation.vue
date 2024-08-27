@@ -1,11 +1,12 @@
 <script setup lang="ts">
-const data = {
-  ipAddress: '192.212.174.101',
-  location: 'Brooklyn, NY 10001',
-  timezone: 'UTC -05:00',
-  isp: 'SpaceX Starlink'
+import { type InformationLocationInterface } from '@/types/types'
+
+interface Props {
+  information: InformationLocationInterface
 }
-const mapValues = {
+const props = defineProps<Props>()
+
+const detailsTitle = {
   ipAddress: 'Ip Address',
   location: 'Location',
   timezone: 'Timezone',
@@ -15,13 +16,13 @@ const mapValues = {
 
 <template>
   <div class="container-summary">
-    <span v-for="(value, key) in data" :key="mapValues[key]">
-      <div class="divider" />
+    <template v-for="(title, key, index) in detailsTitle" :key="detailsTitle[key]">
+      <div v-if="index != 0" class="divider" />
       <div class="content">
-        <p class="title">{{ mapValues[key] }}</p>
-        <p class="value">{{ value }}</p>
+        <p class="title">{{ title }}</p>
+        <p class="value">{{ props.information[key] || '--' }}</p>
       </div>
-    </span>
+    </template>
   </div>
 </template>
 
@@ -30,8 +31,7 @@ const mapValues = {
   margin: auto;
   background-color: white;
   border-radius: var(--rounded);
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
   padding: 1rem;
   box-shadow: 0 10px 10px var(--shadow);
@@ -39,8 +39,10 @@ const mapValues = {
 .divider {
   display: none;
 }
-.container-summary span:first-child > .divider {
-  display: none;
+.content {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-rows: 1rem 1fr;
 }
 .title {
   color: var(--secondary);
@@ -49,7 +51,6 @@ const mapValues = {
   font-size: 0.75rem;
   letter-spacing: 2px;
   margin: 0;
-  margin-bottom: 0.5rem;
 }
 .value {
   margin: 0;
@@ -61,23 +62,19 @@ const mapValues = {
 @media (width >= 768px) {
   .container-summary {
     max-width: 54rem;
-    flex-direction: row;
-    justify-content: space-around;
+    grid-template-columns: repeat(3, 1fr var(--size-divider)) 1fr;
+    gap: 1.25rem;
   }
-  .content {
-    display: inline-block;
-  }
+  .content,
   .title {
-    text-align: left;
+    text-align: start;
   }
   .divider {
-    width: 2px;
+    width: var(--size-divider);
     background-color: var(--shadow);
     margin: 0;
-    margin-right: 1.25rem;
     display: inline-block;
-    /* TODO: This height is not dynamic set if the value needs to lines the layout will break */
-    height: 2.25rem;
+    height: 100%;
   }
 }
 </style>

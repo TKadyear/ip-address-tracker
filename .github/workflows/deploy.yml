@@ -4,15 +4,20 @@ on:
   push:
     branches:
       - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ENV_API_URL: "https://geo.ipify.org/api/v2"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install Dependencies
         run: npm ci
+      - name: Setup environment
+        run: | 
+          echo "VITE_API_URL='https://geo.ipify.org/api/v2' >> .env
+          echo "VITE_API_KEY=${{ secrets.API_KEY }} >> .env
       - name: Build
         run: npm run build:prd
       - name: Setup Pages

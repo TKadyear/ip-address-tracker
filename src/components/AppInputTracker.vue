@@ -1,9 +1,22 @@
 <script setup lang="ts">
+import { watch, ref, defineEmits } from 'vue'
 import IconArrow from './icons/IconArrow.vue'
-const valueInput = '192.212.174.101'
-const handleClick = () => {
-  alert(`search ${valueInput}`)
+interface Props {
+  value: string
 }
+
+const props = defineProps<Props>()
+const inputValue = ref(props.value)
+const emit = defineEmits(['updateIpAddress'])
+const submit = () => {
+  emit('updateIpAddress', inputValue.value)
+}
+watch(
+  () => props.value,
+  (newValue) => {
+    inputValue.value = newValue
+  }
+)
 </script>
 
 <template>
@@ -15,10 +28,11 @@ const handleClick = () => {
       id="ip-tracker"
       minlength="15"
       maxlength="15"
-      :value="valueInput"
+      v-model="inputValue"
       placeholder="Search for any IP address or domain"
+      @keyup.enter="submit"
     />
-    <button class="arrow-btn" :onclick="handleClick">
+    <button class="arrow-btn" @click="submit">
       <IconArrow />
     </button>
   </div>

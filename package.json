@@ -9,15 +9,16 @@
     "build:prd": "npm run build -- --base https://tkadyear.github.io/ip-address-tracker/",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest",
-    "lint:check": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts  --ignore-path .gitignore",
-    "format": "prettier --write src/ && npm run lint:check -- --fix"
+    "lint:check": "eslint . --ext .vue,.ts --ignore-path .gitignore",
+    "format": "prettier --write src/ && npm run lint:check -- --fix",
+    "mocks": "mocks-server"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
     "vue": "^3.4.29"
   },
   "devDependencies": {
+    "@mocks-server/main": "^4.1.0",
     "@rushstack/eslint-patch": "^1.8.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/jsdom": "^21.1.7",
@@ -36,7 +37,6 @@
     "typescript": "~5.5.4",
     "vite": "^5.3.1",
     "vite-plugin-vue-devtools": "^7.3.9",
-    "vitest": "^2.0.5",
     "vue-tsc": "^2.0.21"
   }
 }

@@ -11,5 +11,18 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
-  }
+  },
+  overrides: [
+    {
+      files: ['mocks/**/*.cjs','mocks/**/*.js', 'mocks.config.cjs'],
+      env: {
+        commonjs: true, 
+        node: true,     
+      },
+      parserOptions: {
+        sourceType: 'script', 
+      },
+
+    }
+  ]
 }
